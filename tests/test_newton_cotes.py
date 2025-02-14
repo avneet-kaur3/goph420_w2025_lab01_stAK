@@ -1,7 +1,7 @@
 import numpy as np
 import unittest
 import matplotlib.pyplot as plt
-from integrate import integrate_newton
+from integration import integrate_newton
 
 class TestNewton(unittest.TestCase):
 
