@@ -11,11 +11,12 @@ def main():
     def f(x):
         return (1/np.sqrt(2 * np.pi)) * np.exp((-1/2) * ((x - mean)/std)**2)
     
+    points = np.arange(1, 6)
     integral_gauss = []
     probability = []
     length_probability = []
 
-    for n in range(1, 6):
+    for n in points:
         #Defining the constants for the question.
         z = 4.0
         mean = 1.5
@@ -24,7 +25,7 @@ def main():
         integral_gauss.append(integrate_gauss(f, [0, z], n) + 0.5)
         probability.append(1 - (integrate_gauss(f, [0, z], n) + 0.5))
 
-    for n in range(1, 6):
+    for n in points:
         #Defining the constants for the question.
         mean = 10.28
         std = 0.05
@@ -39,8 +40,8 @@ def main():
     error_seismic = np.abs((probability[:-1] - probability[1:])/probability[:-1])
     error_length = np.abs((length_probability[:-1] - length_probability[1:])/length_probability[:-1])
 
-    plt.loglog(np.arange(1, 6), error_seismic, label = 'Relative Seismic Probability Error')
-    plt.loglog(np.arange(1, 6), error_length, label = 'Relative Length Error')
+    plt.loglog(points, error_seismic, label = 'Relative Seismic Probability Error')
+    plt.loglog(points, error_length, label = 'Relative Length Error')
 
     plt.xlabel('sampling points, npts')
     plt.ylabel('relative error, εa')
