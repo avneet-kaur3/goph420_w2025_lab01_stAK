@@ -11,12 +11,11 @@ def main():
     def f(x):
         return (1/np.sqrt(2 * np.pi)) * np.exp((-1/2) * ((x - mean)/std)**2)
     
-    points = [1, 2, 3, 4, 5]
     integral_gauss = []
     probability = []
     length_probability = []
 
-    for n in points:
+    for n in range(1, 6):
         #Defining the constants for the question.
         z = 4.0
         mean = 1.5
@@ -25,7 +24,7 @@ def main():
         integral_gauss.append(integrate_gauss(f, [0, z], n) + 0.5)
         probability.append(1 - (integrate_gauss(f, [0, z], n) + 0.5))
 
-    for n in (points + 1):
+    for n in range(1, 6):
         #Defining the constants for the question.
         mean = 10.28
         std = 0.05
