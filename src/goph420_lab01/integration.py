@@ -69,7 +69,7 @@ def integrate_gauss(f, lims, npts = 3):
         raise ValueError('Parameter npts must be in [1, 2, 3, 4, 5].')
 
     #Getting the sample points and weights for the Gauss-Legendre quadrature.
-    x_k, w = np.polynomial.legendre.legauss(npts)
+    x_k, w = np.polynomial.legendre.leggauss(npts)
     #The function above only works for an interval of [-1, 1]. Values are translated to the actual limits.
     x = 0.5*(x_k + 1)*(lims[1] - lims[0]) + lims[0]
     #Calculating the integral.
