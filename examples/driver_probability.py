@@ -25,7 +25,7 @@ def main():
         integral_gauss.append(integrate_gauss(f, [0, z], n) + 0.5)
         probability.append(1 - (integrate_gauss(f, [0, z], n) + 0.5))
 
-    for n in points:
+    for n in (points + 1):
         #Defining the constants for the question.
         mean = 10.28
         std = 0.05
