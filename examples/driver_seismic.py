@@ -28,6 +28,8 @@ def main():
 
     plt.savefig(r'C:\Users\HP\Desktop\University Courses\Winter 2025\GOPH 420\goph420_w2025_lab01_stAK\figures\s_wave_data.png')
 
+    plt.figure(figsize=(12, 8))
+
     #Defining sampling intervals to downsample the data for convergence plots.
     sampling_intervals = [0.01, 0.02, 0.04, 0.08]
 
@@ -51,8 +53,6 @@ def main():
     #Calculating the relative error between them for convergence.
     error_trapezoid = np.abs((trapezoidal_integral[:-1] - trapezoidal_integral[1:])/trapezoidal_integral[:-1])
     error_simpsons = np.abs((simpsons_integral[:-1] - simpsons_integral[1:])/simpsons_integral[:-1])
-
-    plt.figure(figsize=(12, 8))
 
     plt.loglog(sampling_intervals, error_trapezoid, label = 'Relative Trapezoid Rule Error')
     plt.loglog(sampling_intervals, error_simpsons, label = 'Relative Simpsons Rule Error')
