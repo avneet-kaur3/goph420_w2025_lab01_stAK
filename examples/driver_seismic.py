@@ -7,7 +7,7 @@ from goph420_lab01.integration import (
 
 def main():
     #Loading seismic data.
-    data = np.loadtxt('examples/s_wave_data.txt')
+    data = np.loadtxt('s_wave_data.txt')
     t_data = data[:, 0]
     v_data = data[:, 1]
     v_squared_data = v_data**2
