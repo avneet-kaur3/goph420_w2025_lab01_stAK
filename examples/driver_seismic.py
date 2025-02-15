@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-from goph420_w2025_lab01_stAK.src.goph420_lab01.integration import integrate_newton
+from src.goph420_lab01.integration import integrate_newton 
 
 def main():
     #Loading seismic data.
@@ -34,11 +33,13 @@ def main():
     simpsons_integral = []
 
     for n in sampling_intervals:
-        t_sampled = t_data[::int(1/n)]
-        v_sampled = v_data[::int(1/n)]
 
-        trapezoidal_integral.append((1/10) * integrate_newton(t_data, v_squared_data, 'trap'))
-        simpsons_integral.append((1/10) * integrate_newton(t_data, v_squared_data, 'simp'))
+        step = int(len(t_data) * n)
+        t_sampled = t_data[::step]
+        v_sampled = v_data[::step]
+
+        trapezoidal_integral.append((1/10) * integrate_newton(t_sampled, v_sampled, 'trap'))
+        simpsons_integral.append((1/10) * integrate_newton(t_sampled, v_sampled, 'simp'))
 
     #Converting the empty list to a numpy array to calculate the relative error.
     trapezoidal_integral = np.array(trapezoidal_integral)
