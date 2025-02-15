@@ -54,13 +54,8 @@ def main():
     error_trapezoid = np.abs((trapezoidal_integral[:-1] - trapezoidal_integral[1:])/trapezoidal_integral[:-1])
     error_simpsons = np.abs((simpsons_integral[:-1] - simpsons_integral[1:])/simpsons_integral[:-1])
 
-    #Ensuring the lengths are the same as the interval.
-    error_trapezoid = np.append(error_trapezoid, 0)
-    error_simpsons = np.append(error_simpsons, 0)
-
-
-    plt.loglog(sampling_intervals, error_trapezoid, label = 'Relative Trapezoid Rule Error')
-    plt.loglog(sampling_intervals, error_simpsons, label = 'Relative Simpsons Rule Error')
+    plt.loglog(sampling_intervals[:-1], error_trapezoid, label = 'Relative Trapezoid Rule Error')
+    plt.loglog(sampling_intervals[:-1], error_simpsons, label = 'Relative Simpsons Rule Error')
 
     plt.xlabel('sampling interval, dt (s)')
     plt.ylabel('relative error, εa')
