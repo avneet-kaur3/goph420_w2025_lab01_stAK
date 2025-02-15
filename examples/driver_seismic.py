@@ -41,7 +41,7 @@ def main():
 
         step = int(len(t_data) * n)
         t_sampled = t_data[::step]
-        v_sampled = v_data[::step]
+        v_sampled = v_squared_data[::step]
 
         trapezoidal_integral.append((1/10) * integrate_newton(t_sampled, v_sampled, 'trap'))
         simpsons_integral.append((1/10) * integrate_newton(t_sampled, v_sampled, 'simp'))
