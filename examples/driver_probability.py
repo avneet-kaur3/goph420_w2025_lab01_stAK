@@ -39,8 +39,8 @@ def main():
     error_seismic = np.abs((probability[:-1] - probability[1:])/probability[:-1])
     error_length = np.abs((length_probability[:-1] - length_probability[1:])/length_probability[:-1])
 
-    plt.loglog(points, error_seismic, label = 'Relative Seismic Probability Error')
-    plt.loglog(points, error_length, label = 'Relative Length Error')
+    plt.loglog(np.arange(1, 6), error_seismic, label = 'Relative Seismic Probability Error')
+    plt.loglog(np.arange(1, 6), error_length, label = 'Relative Length Error')
 
     plt.xlabel('sampling points, npts')
     plt.ylabel('relative error, εa')
