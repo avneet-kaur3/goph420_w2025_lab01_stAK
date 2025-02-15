@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from src.goph420_lab01.integration import integrate_newton
+from goph420_w2025_lab01_stAK.src.goph420_lab01.integration import integrate_newton
 
 def main():
     #Loading seismic data.
