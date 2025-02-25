@@ -9,6 +9,10 @@ def main():
 
     #Defining the standard normal probability density function.
     def f(x):
+        '''
+        The function calculates the standard normal probability density function based on the one provided in the lab assignment manual.
+        It takes in values of x (int) as input and returns the value of the function (int).
+        '''
         return (1/np.sqrt(2 * np.pi)) * np.exp((-1/2) * ((x - mean)/std)**2)
     
     points = np.arange(1, 6)
@@ -29,7 +33,7 @@ def main():
         #Defining the constants for the question.
         mean = 10.28
         std = 0.05
-        #The integral must be done in two parts - from minus infinity to zero, which has a given value of 0.5, and from 0 to z.
+        #The integral is calculated between 10.25 m and 10.35 m as provided in the lab assignment manual.
         length_probability.append(integrate_gauss(f, [10.25, 10.35], n))
 
     #Converting the empty list to a numpy array to calculate the relative error.
