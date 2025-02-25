@@ -6,7 +6,13 @@ from src.goph420_lab01.integration import integrate_gauss
 
 class TestGauss(unittest.TestCase):
 
+    '''
+    The following functions perform tests on the integrate_gauss function imported from the file integration.py. It tests the Gauss-Legendre Quadrature algorithm with
+    the following orders: 1, 3, 5, 7 and 9. The function chosen is sin, and the interval is from 0 to pi/2.
+    '''
+
     def test_order1(self):
+        
         calculated = integrate_gauss(np.sin, [0, np.pi/2], 1)
         print(f'Order 1 result: {calculated}')
 
